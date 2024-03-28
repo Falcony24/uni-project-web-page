@@ -1,0 +1,29 @@
+doctype html
+html(lang="pl")
+    head
+        meta(charset="UTF-8")
+        title= pageTitle
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet", href="/stylesheets/main.css")
+        block head
+
+    body
+        header
+            section#navButton
+                img(src="/images/text-expand-svgrepo-com.svg")
+
+            section#headerMain
+               block mainHeader
+                a(href='/') Biblioteka
+
+
+            section#accoutnBox
+                a(href='/signin') link
+
+        nav
+
+        main
+            block main
+
+        block footer
+            footer
