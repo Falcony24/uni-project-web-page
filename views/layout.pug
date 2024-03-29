@@ -5,22 +5,36 @@ html(lang="pl")
         title= pageTitle
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         link(rel="stylesheet", href="/stylesheets/main.css")
+
+        link(rel="apple-touch-icon" sizes="180x180" href="/images/favico/apple-touch-icon.png")
+        link(rel="icon" type="image/png" sizes="32x32" href="/images/favico/favicon-32x32.png")
+        link(rel="icon" type="image/png" sizes="16x16" href="/images/favico/favicon-16x16.png")
+        link(rel="manifest" href="/images/favico/site.webmanifest")
+        link(rel="mask-icon" href="/images/favico/safari-pinned-tab.svg" color="#5bbad5")
+        meta(name="msapplication-TileColor" content="#da532c")
+        meta(name="theme-color" content="#ffffff")
         block head
 
     body
         header
             section#navButton
-                img(src="/images/text-expand-svgrepo-com.svg")
+                #button
+                    img(src="/images/text-expand-svgrepo-com.svg")
+                #logo
+                    img(src="/images/library-icon.svg")
+                    span Librarium
+
 
             section#headerMain
                block mainHeader
-                a(href='/') Biblioteka
 
 
             section#accoutnBox
-                a(href='/signin') link
+                a(href='/profile') link
 
         nav
+            img(src='/images/movie-svgrepo-com.svg')
+            img(src='/images/open-book-svgrepo-com.svg')
 
         main
             block main

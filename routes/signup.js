@@ -27,25 +27,25 @@ router.post('/', async (req, res, next) => {
     let email = req.body.email;
     let pass = req.body.password;
 
-    try {
-        const validationResult = await schema.validateAsync({sUsername: username, sEmail: email, sPassword: pass}, {abortEarly: false});
-
-        var con = sql.createConnection({
-            host: "localhost",
-            user: "bibliotekarz",
-            password: "root"
-        });
-
-        con.connect(function(err) {
-            if(err) throw err;
-            con.query(`INSERT INTO bibliotek.user(username, email, password) VALUES("${username}", "${pass}", "${email}");`, function (err, result, fields) {
-                if (err) throw err;
-            })
-        });
-
-    } catch (err) {
-        console.log(err);
-    }
+    // try {
+    //     const validationResult = await schema.validateAsync({sUsername: username, sEmail: email, sPassword: pass}, {abortEarly: false});
+    //
+    //     var con = sql.createConnection({
+    //         host: "localhost",
+    //         user: "bibliotekarz",
+    //         password: "root"
+    //     });
+    //
+    //     con.connect(function(err) {
+    //         if(err) throw err;
+    //         con.query(`INSERT INTO bibliotek.user(username, email, password) VALUES("${username}", "${pass}", "${email}");`, function (err, result, fields) {
+    //             if (err) throw err;
+    //         })
+    //     });
+    //
+    // } catch (err) {
+    //     console.log(err);
+    // }
 
 })
 
