@@ -1,7 +1,7 @@
-var express = require('express');
-var router = express.Router();
+let express = require('express');
+let router = express.Router();
 let joi = require('joi');
-let sql = require('mysql');
+let database = require('../database');
 
 router.get('/', (req, res, next) => {
     res.render('signup', {pageTitle: 'Rejestracja'})

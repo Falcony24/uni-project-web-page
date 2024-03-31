@@ -30,7 +30,21 @@ html(lang="pl")
 
 
             section#accoutnBox
-                a(href='/profile') link
+                #window
+                    if userID
+                        a(href='/profile') link
+                        a(href='/logout') link2
+                    else
+                        form(method='POST' action='/signin')
+                            label(for='username') username
+                            input(type='text' id='username' name='username')
+                            #errorUsername
+
+                            label(for='password') password
+                            input(type='password' id='password' name='password')
+                            #errorPass
+
+                            button(id='signin') Zatwierdź
 
         nav
             img(src='/images/movie-svgrepo-com.svg')
