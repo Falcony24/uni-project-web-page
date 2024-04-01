@@ -1,9 +1,11 @@
-let express = require('express');
-let router = express.Router();
-let database = require('../database');
+const express = require('express');
+const router = express.Router();
+const database = require('../database');
 const sql = require('mysql');
 
-
+router.get('/', (req, res) => {
+    res.redirect('/profile');
+});
 router.post('/', (req, res) => {
     let username = sql.escape(req.body.username);
     let pass = sql.escape(req.body.password);

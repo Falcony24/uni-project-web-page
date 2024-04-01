@@ -13,6 +13,8 @@ html(lang="pl")
         link(rel="mask-icon" href="/images/favico/safari-pinned-tab.svg" color="#5bbad5")
         meta(name="msapplication-TileColor" content="#da532c")
         meta(name="theme-color" content="#ffffff")
+        script(src='/javascripts/jquery-3.7.1.js')
+        script(src='/javascripts/utility.js')
         block head
 
     body
@@ -20,35 +22,29 @@ html(lang="pl")
             section#navButton
                 #button
                     img(src="/images/text-expand-svgrepo-com.svg")
-                #logo
-                    img(src="/images/library-icon.svg")
-                    span Librarium
+                a(href='/')
+                    #logo
+                        img(src="/images/library-icon.svg")
+                        span Librarium
 
 
             section#headerMain
                block mainHeader
 
 
-            section#accoutnBox
+            section#accoutnBox sa
                 #window
                     if userID
-                        a(href='/profile') link
-                        a(href='/logout') link2
+                        a(href='/profile') Profil
+                        a(href='/logout') Wyloguj
                     else
                         form(method='POST' action='/signin')
-                            label(for='username') username
-                            input(type='text' id='username' name='username')
-                            #errorUsername
-
-                            label(for='password') password
-                            input(type='password' id='password' name='password')
-                            #errorPass
-
+                            input(type='text' id='username' name='username' placeholder='Nazwa użytkownika/Email')
+                            input(type='password' id='password' name='password' placeholder='Hasło')
                             button(id='signin') Zatwierdź
 
         nav
-            img(src='/images/movie-svgrepo-com.svg')
-            img(src='/images/open-book-svgrepo-com.svg')
+            block nav
 
         main
             block main
