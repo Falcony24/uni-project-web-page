@@ -1,4 +1,10 @@
 extends layout
 
+block append head
+    script(src='/javascripts/profile.js')
+
 block main
-    span chuj
+    section#mainProfile
+        span Witaj na swoim profilu tutaj możesz sprawdzisz zapisane filmy.
+        div#profileMovies
+    != mainContent

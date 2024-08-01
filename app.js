@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 const session = require("express-session");
+const flash = require('connect-flash');
 
 const app = express();
 
@@ -16,13 +17,15 @@ app.use(session({
     saveUninitialized: true,
     // cookie: { secure: true }
 }));
+app.use(flash());
 
-let indexRouter = require('./routes/index');
-let signupRouter = require('./routes/signup');
-let catalogRouter = require('./routes/catalog');
-let profileRouter = require('./routes/profile');
-let signinRouter = require('./routes/signin');
-let e404Router = require('./routes/errors');
+// const indexRouter = require('./routes/index');
+const signupRouter = require('./routes/signup');
+const catalogRouter = require('./routes/catalog');
+const profileRouter = require('./routes/profile');
+const signinRouter = require('./routes/signin');
+const contentRouter = require('./routes/content')
+const e404Router = require('./routes/errors');
 
 app.use((req, res, next) => {
     res.locals.userID = req.session.userID;
@@ -33,11 +36,12 @@ app.use((req, res, next) => {
     next();
 });
 
-app.use('/', indexRouter);
+app.use('/', catalogRouter);
 app.use('/catalog', catalogRouter);
 app.use('/signup', signupRouter);
 app.use('/profile', profileRouter);
 app.use('/signin', signinRouter);
+app.use('/content', contentRouter)
 app.get('/logout', (req, res) => {
     req.session.destroy();
     res.redirect('/catalog');

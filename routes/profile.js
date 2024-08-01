@@ -1,8 +1,15 @@
 const express = require('express');
-const database = require("../database");
 const router = express.Router();
 
-router.get('/', database.requireAuth, (req, res) => {
+const requireAuth = (req, res, next) => {
+    if(req.session.userID) {
+        next();
+    }
+    else {
+        res.redirect('/');
+    }
+}
+router.get('/', requireAuth, (req, res) => {
     res.render('profile', {pageTitle: 'Profil'})
 })
 

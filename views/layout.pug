@@ -3,9 +3,8 @@ html(lang="pl")
     head
         meta(charset="UTF-8")
         title= pageTitle
-        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0 user-scalable=false")
         link(rel="stylesheet", href="/stylesheets/main.css")
-
         link(rel="apple-touch-icon" sizes="180x180" href="/images/favico/apple-touch-icon.png")
         link(rel="icon" type="image/png" sizes="32x32" href="/images/favico/favicon-32x32.png")
         link(rel="icon" type="image/png" sizes="16x16" href="/images/favico/favicon-16x16.png")
@@ -15,16 +14,17 @@ html(lang="pl")
         meta(name="theme-color" content="#ffffff")
         script(src='/javascripts/jquery-3.7.1.js')
         script(src='/javascripts/utility.js')
+            
         block head
 
     body
         header
             section#navButton
-                #button
-                    img(src="/images/text-expand-svgrepo-com.svg")
+                //#button
+                //    img(src="/images/text-expand-svgrepo-com.svg")
                 a(href='/')
                     #logo
-                        img(src="/images/library-icon.svg")
+                        img(src="/images/library-114.svg")
                         span Librarium
 
 
@@ -32,19 +32,24 @@ html(lang="pl")
                block mainHeader
 
 
-            section#accoutnBox sa
-                #window
-                    if userID
-                        a(href='/profile') Profil
-                        a(href='/logout') Wyloguj
-                    else
-                        form(method='POST' action='/signin')
-                            input(type='text' id='username' name='username' placeholder='Nazwa użytkownika/Email')
-                            input(type='password' id='password' name='password' placeholder='Hasło')
-                            button(id='signin') Zatwierdź
+            section#accountBox
+                if userID
+                    div(style='height: 100%; width: 100%')
+                        a(href='/profile')
+                            div.opt Profil
+                        a(href='/logout')
+                            div.opt Wyloguj
+                else
+                    form#signinForm(method='POST' action='/signin')
+                        input(type='text' id='username' name='username' placeholder='Nazwa użytkownika')
+                        input(type='password' id='password' name='password' placeholder='Hasło')
+                        button(id='signin') Zaloguj
+                    a(href='/signup') Rejestracja
 
-        nav
-            block nav
+        //nav
+            //img(src='/images/movie-svgrepo-com.svg' id='movie')
+            //img(src='/images/open-book-svgrepo-com.svg' id='book')
+            //block nav
 
         main
             block main

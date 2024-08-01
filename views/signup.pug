@@ -11,23 +11,24 @@ block append head
 
 
 block main
-    form(method='POST' action='/signup')
-        label(for='username') username
-        input(type='text' id='username' name='username')
-        #errorUsername
+    section#mainSignup
+        form#signupForm(method='POST' action='/signup')
+            label(for='usernameUp') Nazwa użytkownika
+            input(type='text' id='usernameUp' name='usernameUp')
+            #errorUsername.error
 
-        label(for='email') email
-        input(type='text' id='email' name='email')
-        #errorEmail
+            //label(for='email') email
+            //input(type='text' id='email' name='email')
+            //#errorEmail
 
-        label(for='password') password
-        input(type='password' id='password' name='password')
-        #errorPass
+            label(for='passwordUp') Hasło
+            input(type='password' id='passwordUp' name='passwordUp')
+            #errorPass.error
 
-        label(for='passwordSec') password
-        input(type='password' id='passwordSec' name='passwordSec')
-        #errorPassSec
+            label(for='passwordSecUp') Powtórz hasło
+            input(type='password' id='passwordSecUp' name='passwordSecUp')
+            #errorPassSec.error
 
-        button(id='signup') Zatwierdź
+            button(id='signup') Zatwierdź
 
 block footer
